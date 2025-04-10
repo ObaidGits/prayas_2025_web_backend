@@ -42,6 +42,10 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/sos", webSosRouter);
 app.use("/api/v1/cctv", cctvSosRouter);
+// Root route to confirm server is running
+app.get("/", (req, res) => {
+  res.send("🚀 Your Backend Server is Running");
+});
 
 // Create server
 const httpServer = createServer(app);
