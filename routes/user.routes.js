@@ -2,11 +2,12 @@ import { Router } from "express";
 import { changeCurrentPassword, getCurrentUser, loginUser, logoutUser, refreshAccessToken, registerUser } from "../controllers/user.controller.js";
 import {upload} from "../middlewares/multer.middleware.js"
 import { verifyJWT } from "../middlewares/auth.middleware.js";
+import { userMulter } from "../middlewares/user.middleware.js";
 
 
 const router=Router();
 router.route("/register").post(
-    upload.single("avatar"),
+    userMulter.single("avatar"),
     registerUser
 )
 
